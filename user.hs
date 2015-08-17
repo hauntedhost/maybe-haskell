@@ -42,8 +42,8 @@ userFromParams params = User (nextUserId users)
   <*> getParam "email" params
 
 findUserName :: Int -> Maybe String
-findUserName id =
-  findUser users id >>= \user ->
+findUserName id = do
+  user <- findUser users id
   Just (userName user)
 
 -- VIEW
