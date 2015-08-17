@@ -41,6 +41,23 @@ userFromParams params = User (nextUserId users)
   <$> getParam "name" params
   <*> getParam "email" params
 
+-- contrived example of bind operator: >>=
+-- it appears bind expects a Maybe on left hand side
+-- if Maybe on left is Nothing, Nothing is simply returned
+-- otherwise the value in Maybe is passed to the function on right
+-- and this function is expected to return a Maybe
+-- Maybe a -> (a -> Maybe b) -> Maybe b
+
+getUserName :: User -> Maybe String
+getUserName user = Just (userName user)
+
+findUserName :: Int -> Maybe String
+findUserName id = findUser users id >>= getUserName
+
+-- this is contrived, because we can already do this, w/out
+-- unnecessary getUserName function:
+-- findUserName id = fmap userName (findUser users id)
+
 -- VIEW
 
 showUserId :: Maybe User -> String
