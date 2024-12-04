@@ -5,4 +5,4 @@
 Personal code while reading [Maybe Haskell](http://j.mp/1JaVRwd). Great book.
 
 ---
-[Sean Omlor](http://seanomlor.com)
+👻 [haunted.host](https://www.haunted.host)
